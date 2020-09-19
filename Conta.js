@@ -1,8 +1,12 @@
-import { Cliente } from "./Cliente.js";
-
+// classe abstrata (superclasse que não é instanciada nunca)
 export class Conta {
   static numeroDeContas = 0;
+
   constructor(cliente, agencia, saldoInicial) {
+    if (this.constructor == Conta) {
+      throw new Error("Você não deve instanciar a classe Conta diretamente");
+    }
+
     this._cliente = cliente;
     this._agencia = agencia;
     this._saldo = saldoInicial;
@@ -23,9 +27,9 @@ export class Conta {
     return this._saldo;
   }
 
+  // método abstrato 
   sacar(valor) {
-    let taxa = 1;
-    return this._sacar(valor, taxa);
+    throw new Error("O método sacar precisa ser sobreescrito na classe especializada");
   }
 
   _sacar(valor, taxa) {

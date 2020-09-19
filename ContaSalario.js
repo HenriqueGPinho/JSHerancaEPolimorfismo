@@ -1,13 +1,13 @@
 import { Conta } from "./Conta.js";
 
-export class ContaPoupanca extends Conta {
+export class ContaSalario extends Conta {
   constructor(cliente, agencia, saldoInicial) {
     super(cliente, agencia, saldoInicial);
     Conta.numeroDeContas += 1;
   }
 
   sacar(valor) {
-    let taxa = 1.02;
+    let taxa = 1.01;
     return this._sacar(valor, taxa);
   }
 }
