@@ -12,8 +12,4 @@ export class Cliente {
   get nome() {
     return this._nome;
   }
-
-  autenticar(senha) {
-    return senha == this._senha;
-  }
 }
